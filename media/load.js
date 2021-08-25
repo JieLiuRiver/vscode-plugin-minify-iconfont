@@ -6,7 +6,7 @@ window.onload = () => {
     window.icons = e.data.icons || []
     const $content = $("#root")
     const icons = (e.data.icons || [])
-    $content.html(`<div id="opera" onclick="exportTask(this)"><button>导出</button></div><div class="content">` + icons.map((icon, idx) => `
+    $content.html(`<div id="opera" onclick="exportTask(this)"><span>导出</span></div><div class="content">` + icons.map((icon, idx) => `
 <div class="item-content" onclick="toggle(this)" data-idx="${idx}">
     <svg transform="scale(0.5, 0.5)" width="1024" height="1024" viewBox="0 0 1024 1024">
       <g>

@@ -18,7 +18,7 @@ export default class Svg2font {
       icons: any[]
       fontName: string
       prefix: string
-    }
+    } = {icons: [], fontName: '', prefix: 'icon-'}
     distDir: string = ''
     distTree: {
       svg: string
@@ -52,7 +52,7 @@ export default class Svg2font {
 
     init(){
       try {
-        this.distDir = pathJoin(Svg2font.baseDir,`${this.data.fontName}${Date.now()}`);
+        this.distDir = pathJoin(Svg2font.baseDir,`${this.data.fontName}_${Date.now()}`);
         this.distTree = {
           svg:pathJoin(this.distDir,`./fonts/${this.data.fontName}.svg`),
           ttf:pathJoin(this.distDir,`./fonts/${this.data.fontName}.ttf`),
@@ -97,6 +97,7 @@ export default class Svg2font {
         this.templeteRender();
         this.ttf();
         this.woff();
+        vscode.window.showInformationMessage(`导出成功：  ${this.distDir}/`)
     }
     getZip(){
         child_process.execSync(`tar czvf ${this.data.fontName}.tar.gz *`, {

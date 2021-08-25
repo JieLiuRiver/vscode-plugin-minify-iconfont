@@ -33,9 +33,13 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
 
   icons: IconItem[] = []
   fsPath: string = ''
+
   constructor(
     private readonly _context: vscode.ExtensionContext
-  ) { }
+  ) {
+    
+  }
+
   openCustomDocument(uri: vscode.Uri, openContext: vscode.CustomDocumentOpenContext, token: vscode.CancellationToken): TTFDocument | Thenable<TTFDocument> {
     return TTFDocument.create(uri)
   } 
@@ -67,6 +71,10 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
       height = width;
     const icons: any[] = []
     const scale = 1024/parseInt(width!);
+    if (!$glyph.length) {
+      vscode.window.showErrorMessage(`不支持单个svg图标，请选中iconfont图标。 
+      推荐在https://icomoon.io/app/#/select/ 生成`)
+    }
     $glyph.each((index,glyph)=>{
       let {attribs} = glyph;
       if(attribs.d && attribs.d.length > 0){
@@ -126,7 +134,7 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
       fs.mkdirSync(Svg2font.baseDir);
     }
     new Svg2font(icons, fontName)
-  }
+  } 
  
 }
 class TTFDocument extends Disposable implements vscode.CustomDocument {
