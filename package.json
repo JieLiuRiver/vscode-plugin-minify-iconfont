@@ -1,0 +1,70 @@
+{
+	"name": "minify-iconfont",
+	"displayName": "minify-iconfont",
+	"description": "svg按需导出字体图标",
+	"author": {
+		"name": "hliujie"
+	},
+  "icon": "images/logo.png",
+	"publisher": "hliujie",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"keywords": [
+		"svg",
+		"iconfont"
+	],
+	"activationEvents": [
+		"onCustomEditor:svg.minify"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/stupidWall/vscode-plugin-minify-iconfont.git"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "svg.minify",
+				"displayName": "svg minify",
+				"selector": [
+					{
+						"filenamePattern": "*.svg"
+					}
+				]
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/opentype.js": "^1.3.1",
+		"@types/vscode": "^1.51.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	},
+	"dependencies": {
+		"@types/nunjucks": "^3.1.5",
+		"@types/svg2ttf": "^5.0.1",
+		"@types/ttf2woff": "^2.0.1",
+		"cheerio": "^1.0.0-rc.10",
+		"child_process": "^1.0.2",
+		"nunjucks": "^3.2.3",
+		"opentype.js": "^1.3.3",
+		"svg2ttf": "^6.0.3",
+		"svgpath": "^2.3.1",
+		"ttf2woff": "^3.0.0"
+	}
+}

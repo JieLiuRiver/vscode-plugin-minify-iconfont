@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>by IconCenter</metadata>
+<defs>
+<font id="{{fontName}}" horiz-adv-x="1024">
+<font-face units-per-em="1024" ascent="960" descent="-64" font-family="{{fontName}}" />
+<missing-glyph horiz-adv-x="1024" />
+{% for item in icons %}
+<glyph
+    glyph-name="{{item.name}}" unicode="&#x{{(item.code).toString(16)}};" d="{{item.mirrorImagePaths.join('')}}" />
+{% endfor %}
+</font></defs></svg>
