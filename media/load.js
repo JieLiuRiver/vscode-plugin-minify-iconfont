@@ -1,6 +1,5 @@
-
-
 window.onload = () => {
+  window.vscode = acquireVsCodeApi()
   window.addEventListener('message', e => {
     window.collect = {}
     window.icons = e.data.icons || []
@@ -35,7 +34,6 @@ function toggle(self) {
 }
 
 function exportTask(self) {
-  const vscode = acquireVsCodeApi()
   if (!Object.keys(window.collect).length) {
     vscode.postMessage({
       status: -1,

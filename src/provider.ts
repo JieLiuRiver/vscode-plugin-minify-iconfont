@@ -68,7 +68,7 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
     let $fontface = $('font-face:first'),
       $glyph = $('glyph'),
       width = $fontface.attr('units-per-em'),
-      height = width;
+      height = width; 
     const icons: any[] = []
     const scale = 1024/parseInt(width!);
     if (!$glyph.length) {
