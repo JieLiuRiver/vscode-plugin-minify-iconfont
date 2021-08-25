@@ -8,7 +8,7 @@
 ##### `step.1`
 打开项目中的字体图标
 
-![image.png](https%3A%2F%2Fnote.youdao.com%2Fyws%2Fpublic%2Fresource%2F70a8093e0706296480d3854773222b2a%2FWEBRESOURCE5a247971de17fb33e539babf995dd659)
+![image.png](https://note.youdao.com/yws/public/resource/70a8093e0706296480d3854773222b2a/WEBRESOURCE5a247971de17fb33e539babf995dd659?ynotemdtimestamp=1629864650483)
 
 
 ##### `step.2`
