@@ -36,7 +36,6 @@ function toggle(self) {
 
 function exportTask(self) {
   const vscode = acquireVsCodeApi()
-  console.warn('exportTask', self)
   if (!Object.keys(window.collect).length) {
     vscode.postMessage({
       status: -1,

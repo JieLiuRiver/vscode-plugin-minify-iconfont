@@ -65,7 +65,7 @@ export default class Svg2font {
       } catch (error) {
         console.log('catch.......', error)
         Svg2font.exporting = false
-        vscode.window.showErrorMessage(error)
+        vscode.window.showErrorMessage('导出失败')
       }
     }
     createDir(){
