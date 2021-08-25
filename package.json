@@ -1,7 +1,7 @@
 {
 	"name": "minify-iconfont",
 	"displayName": "minify-iconfont",
-	"description": "svg按需导出字体图标",
+	"description": "svg字体图标，按需导出",
 	"author": {
 		"name": "hliujie"
 	},
@@ -41,7 +41,8 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+    "deploy": "vsce package && vsce publish"
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
