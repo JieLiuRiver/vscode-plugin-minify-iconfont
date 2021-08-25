@@ -69,7 +69,7 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
       $glyph = $('glyph'),
       width = $fontface.attr('units-per-em'),
       height = width; 
-    const icons: any[] = []
+    const icons: any[] = [] 
     const scale = 1024/parseInt(width!);
     if (!$glyph.length) {
       vscode.window.showErrorMessage(`不支持单个svg图标，请选中iconfont图标。 

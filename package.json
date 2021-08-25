@@ -7,7 +7,7 @@
 	},
 	"icon": "images/logo.png",
 	"publisher": "hliujie",
-	"version": "0.0.5",
+	"version": "0.0.7",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -38,7 +38,7 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
-		"compile": "tsc -p ./",
+		"compile": "tsc -p ./ && node copyTemplate.js",
 		"watch": "tsc -watch -p ./",
 		"pretest": "yarn run compile",
 		"test": "node ./out/test/runTest.js",
@@ -61,6 +61,7 @@
 		"@types/ttf2woff": "^2.0.1",
 		"cheerio": "^1.0.0-rc.10",
 		"child_process": "^1.0.2",
+		"fs-extra": "^10.0.0",
 		"nunjucks": "^3.2.3",
 		"svg2ttf": "^6.0.3",
 		"svgpath": "^2.3.1",

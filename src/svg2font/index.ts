@@ -10,7 +10,7 @@ const ttf2woff = require('ttf2woff')
 
 export default class Svg2font {
     static env = new nunjucks.Environment(new nunjucks.FileSystemLoader(
-      path.resolve(__dirname, '../../', 'src/svg2font/templates')
+      path.resolve(__dirname, '../../', 'out/svg2font/templates')
     ))
     static baseDir = ''
     static exporting: boolean = false
