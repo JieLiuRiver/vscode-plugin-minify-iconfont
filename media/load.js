@@ -8,13 +8,13 @@ window.onload = () => {
     $content.html(`
 <div class="header">
   <div class="searchArea">
-    <input id="searchInput" onChange="onSearchChange(this)" placeholder="请输入图标名或unicode" />
+    <input id="searchInput" onChange="onSearchChange(this)" placeholder="name or unicode" />
     <div id="searchBtn" onclick="doSearch(this)">
-      <span>搜索</span>
+      <span>Search</span>
     </div>
   </div>
   <div id="opera" onclick="exportTask(this)">
-      <span>导出</span>
+      <span>Export</span>
   </div>
 </div>
 <div class="content" id="list">` + icons.map((icon, idx) => `
@@ -25,7 +25,7 @@ window.onload = () => {
       </g>
     </svg>
     <div class="name">${icon.name}</div>
-    <div class="unicodeName">${icon.unicodeName ? icon.unicodeName.replace('&#x', '\\u').replace(';', '') : '-'}</div>
+    <div class="unicodeName">${icon.unicodeName || '-'}</div>
 </div>
     `).join("\n")) + '<div/>'
   })

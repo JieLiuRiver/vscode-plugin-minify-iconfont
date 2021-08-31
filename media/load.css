@@ -8,7 +8,6 @@ body {
   align-items: center;
 }
 #opera {
-  margin-bottom: 20px;
   line-height: 1.5715;
   position: relative;
   display: inline-block;
@@ -83,7 +82,7 @@ body {
 #searchBtn {
   margin-left: 20px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   line-height: 1.5715;
   position: relative;
@@ -121,4 +120,5 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }

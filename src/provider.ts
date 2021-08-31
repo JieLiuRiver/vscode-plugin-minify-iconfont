@@ -116,11 +116,17 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
           mirrorImagePaths: mirrorImagePath([attribs.d], parseInt(height!) * scale),
           name: attribs['glyph-name'] || randomWord(8),
           code: attribs['unicode'] ? attribs['unicode'].charCodeAt(0) : null,
-          unicodeName: attribs['unicode'] ? attribs.unicode.replace(/[^\x00-\xff]/g, (str) => `&#x${str.charCodeAt(0).toString(16)}`) : null
+          unicodeName: this.unicode2Name(attribs)
         })
+        // icon.unicodeName.replace('&#x', '\\u').replace(';', '')
       }
     });
     this.icons = icons
+  }
+
+  unicode2Name(attribs: any) {
+    const result = attribs['unicode'] ? attribs.unicode.replace(/[^\x00-\xff]/g, (str: string) => `&#x${str.charCodeAt(0).toString(16)}`) : null
+    return result ? result.replace('&#x', '\\u').replace(';', '') : ''
   }
   
   getHtmlForWebView(webview: vscode.Webview) {
