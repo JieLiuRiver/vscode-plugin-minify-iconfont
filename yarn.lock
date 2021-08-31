@@ -61,6 +61,11 @@
   resolved "https://registry.nlark.com/@types/nunjucks/download/@types/nunjucks-3.1.5.tgz?cache=0&sync_timestamp=1629708754224&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fnunjucks%2Fdownload%2F%40types%2Fnunjucks-3.1.5.tgz#e0782333b75b4ff9ac9213aa160ca8c5132eaf57"
   integrity sha1-4HgjM7dbT/mskhOqFgyoxRMur1c=
 
+"@types/opentype.js@^1.3.1":
+  version "1.3.3"
+  resolved "https://registry.nlark.com/@types/opentype.js/download/@types/opentype.js-1.3.3.tgz#1bb29123a24200c9123a03bb378eee053e505f26"
+  integrity sha1-G7KRI6JCAMkSOgO7N47uBT5QXyY=
+
 "@types/svg2ttf@^5.0.1":
   version "5.0.1"
   resolved "https://registry.nlark.com/@types/svg2ttf/download/@types/svg2ttf-5.0.1.tgz#b41b08af3dcf4eecc2f7a47bf2e3315209faaa0e"
@@ -117,7 +122,7 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-argparse@^1.0.7:
+argparse@^1.0.2, argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.nlark.com/argparse/download/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   integrity sha1-vNZ5HqWuCXJeF+WtmIE0zUCz2RE=
@@ -128,6 +133,14 @@ argparse@^2.0.1:
   version "2.0.1"
   resolved "https://registry.nlark.com/argparse/download/argparse-2.0.1.tgz#246f50f3ca78a3240f6c997e8a9bd1eac49e4b38"
   integrity sha1-JG9Q88p4oyQPbJl+ipvR6sSeSzg=
+
+"argparse@~ 0.1.15", argparse@~0.1.15:
+  version "0.1.16"
+  resolved "https://registry.nlark.com/argparse/download/argparse-0.1.16.tgz#cfd01e0fbba3d6caed049fbd758d40f65196f57c"
+  integrity sha1-z9AeD7uj1srtBJ+9dY1A9lGW9Xw=
+  dependencies:
+    underscore "~1.7.0"
+    underscore.string "~2.4.0"
 
 asap@^2.0.3:
   version "2.0.6"
@@ -449,6 +462,23 @@ flat@^4.1.0:
   dependencies:
     is-buffer "~2.0.3"
 
+font-carrier@0.0.12:
+  version "0.0.12"
+  resolved "https://registry.nlark.com/font-carrier/download/font-carrier-0.0.12.tgz#5d281b653720ac97e9e783549426cd5196619bc6"
+  integrity sha1-XSgbZTcgrJfp54NUlCbNUZZhm8Y=
+  dependencies:
+    jdataview "2.5.0"
+    lodash "3.7.0"
+    multiline "1.0.2"
+    opentype.js "0.4.8"
+    svg2ttf "2.0.0"
+    svg_pathify "0.0.x"
+    svgpath "2.0.0"
+    ttf2eot "1.3.0"
+    ttf2svg "0.0.7"
+    ttf2woff "1.3.0"
+    xmldom "0.1.19"
+
 fs-extra@^10.0.0:
   version "10.0.0"
   resolved "https://registry.nlark.com/fs-extra/download/fs-extra-10.0.0.tgz#9ff61b655dde53fb34a82df84bb214ce802e17c1"
@@ -491,6 +521,11 @@ get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
     function-bind "^1.1.1"
     has "^1.0.3"
     has-symbols "^1.0.1"
+
+get-stdin@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.nlark.com/get-stdin/download/get-stdin-4.0.1.tgz#b968c6b0a04384324902e8bf1a5df32579a450fe"
+  integrity sha1-uWjGsKBDhDJJAui/Gl3zJXmkUP4=
 
 glob@7.1.3:
   version "7.1.3"
@@ -697,6 +732,11 @@ isexe@^2.0.0:
   resolved "https://registry.nlark.com/isexe/download/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+jdataview@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.nlark.com/jdataview/download/jdataview-2.5.0.tgz#3081b3fea651f9317ec6bd4feb2ddc98aa41d595"
+  integrity sha1-MIGz/qZR+TF+xr1P6y3cmKpB1ZU=
+
 js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.nlark.com/js-tokens/download/js-tokens-4.0.0.tgz?cache=0&sync_timestamp=1619345098261&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fjs-tokens%2Fdownload%2Fjs-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -739,6 +779,21 @@ locate-path@^3.0.0:
   dependencies:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
+
+lodash@3.7.0:
+  version "3.7.0"
+  resolved "https://registry.nlark.com/lodash/download/lodash-3.7.0.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-3.7.0.tgz#3678bd8ab995057c07ade836ed2ef087da811d45"
+  integrity sha1-Nni9irmVBXwHreg27S7wh9qBHUU=
+
+lodash@^2.4.1:
+  version "2.4.2"
+  resolved "https://registry.nlark.com/lodash/download/lodash-2.4.2.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+  integrity sha1-+t2DS5aDBz2hebPq5tnA0VBT9z4=
+
+lodash@^3.6.0, lodash@^3.7.0:
+  version "3.10.1"
+  resolved "https://registry.nlark.com/lodash/download/lodash-3.10.1.tgz?cache=0&sync_timestamp=1624543041613&other_urls=https%3A%2F%2Fregistry.nlark.com%2Flodash%2Fdownload%2Flodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+  integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
 
 lodash@^4.17.10, lodash@^4.17.15:
   version "4.17.21"
@@ -827,6 +882,13 @@ ms@^2.1.1:
   resolved "https://registry.nlark.com/ms/download/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha1-V0yBOM4dK1hh8LRFedut1gxmFbI=
 
+multiline@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/multiline/download/multiline-1.0.2.tgz#69b1f25ff074d2828904f244ddd06b7d96ef6c93"
+  integrity sha1-abHyX/B00oKJBPJE3dBrfZbvbJM=
+  dependencies:
+    strip-indent "^1.0.0"
+
 node-environment-flags@1.0.5:
   version "1.0.5"
   resolved "https://registry.npm.taobao.org/node-environment-flags/download/node-environment-flags-1.0.5.tgz#fa930275f5bf5dae188d6192b24b4c8bbac3d76a"
@@ -897,6 +959,19 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
+opentype.js@0.4.8:
+  version "0.4.8"
+  resolved "https://registry.npm.taobao.org/opentype.js/download/opentype.js-0.4.8.tgz#716fb72503205ee924a1a33ba6c7a8d1c16d622d"
+  integrity sha1-cW+3JQMgXukkoaM7pseo0cFtYi0=
+
+opentype.js@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.npm.taobao.org/opentype.js/download/opentype.js-1.3.3.tgz#65b8645b090a1ad444065b784d442fa19d1061f6"
+  integrity sha1-ZbhkWwkKGtREBlt4TUQvoZ0QYfY=
+  dependencies:
+    string.prototype.codepointat "^0.2.1"
+    tiny-inflate "^1.0.3"
+
 p-limit@^2.0.0:
   version "2.3.0"
   resolved "https://registry.nlark.com/p-limit/download/p-limit-2.3.0.tgz?cache=0&sync_timestamp=1628812721654&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fp-limit%2Fdownload%2Fp-limit-2.3.0.tgz#3dd33c647a214fdfffd835933eb086da0dc21db1"
@@ -920,6 +995,11 @@ pako@^1.0.0:
   version "1.0.11"
   resolved "https://registry.nlark.com/pako/download/pako-1.0.11.tgz?cache=0&sync_timestamp=1627560125189&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpako%2Fdownload%2Fpako-1.0.11.tgz#6c9599d340d54dfd3946380252a35705a6b992bf"
   integrity sha1-bJWZ00DVTf05RjgCUqNXBaa5kr8=
+
+"pako@~ 0.2.2":
+  version "0.2.9"
+  resolved "https://registry.nlark.com/pako/download/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
+  integrity sha1-8/dSL073gjSNqBYbrZ7P1Rv4OnU=
 
 parse5-htmlparser2-tree-adapter@^6.0.1:
   version "6.0.1"
@@ -1049,6 +1129,11 @@ string-width@^3.0.0, string-width@^3.1.0:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
 
+string.prototype.codepointat@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npm.taobao.org/string.prototype.codepointat/download/string.prototype.codepointat-0.2.1.tgz#004ad44c8afc727527b108cd462b4d971cd469bc"
+  integrity sha1-AErUTIr8cnUnsQjNRitNlxzUabw=
+
 string.prototype.trimend@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/string.prototype.trimend/download/string.prototype.trimend-1.0.4.tgz?cache=0&sync_timestamp=1614127461586&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fstring.prototype.trimend%2Fdownload%2Fstring.prototype.trimend-1.0.4.tgz#e75ae90c2942c63504686c18b287b4a0b1a45f80"
@@ -1086,6 +1171,13 @@ strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   dependencies:
     ansi-regex "^4.1.0"
 
+strip-indent@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/strip-indent/download/strip-indent-1.0.1.tgz?cache=0&sync_timestamp=1620053310624&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fstrip-indent%2Fdownload%2Fstrip-indent-1.0.1.tgz#0c7962a6adefa7bbd4ac366460a638552ae1a0a2"
+  integrity sha1-DHlipq3vp7vUrDZkYKY4VSrhoKI=
+  dependencies:
+    get-stdin "^4.0.1"
+
 strip-json-comments@2.0.1:
   version "2.0.1"
   resolved "https://registry.nlark.com/strip-json-comments/download/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
@@ -1105,6 +1197,17 @@ supports-color@^5.3.0:
   dependencies:
     has-flag "^3.0.0"
 
+svg2ttf@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.nlark.com/svg2ttf/download/svg2ttf-2.0.0.tgz#b1b6add9432111d6a4c0676f25edefa8b4da7f80"
+  integrity sha1-sbat2UMhEdakwGdvJe3vqLTaf4A=
+  dependencies:
+    argparse "^1.0.2"
+    lodash "^3.6.0"
+    microbuffer "^1.0.0"
+    svgpath "~2.0.0"
+    xmldom "~0.1.16"
+
 svg2ttf@^6.0.3:
   version "6.0.3"
   resolved "https://registry.nlark.com/svg2ttf/download/svg2ttf-6.0.3.tgz#7b92978ff124b2a583d21e1208b9675e245e56d1"
@@ -1117,10 +1220,28 @@ svg2ttf@^6.0.3:
     microbuffer "^1.0.0"
     svgpath "^2.1.5"
 
+svg_pathify@0.0.x:
+  version "0.0.8"
+  resolved "https://registry.nlark.com/svg_pathify/download/svg_pathify-0.0.8.tgz#f4d6d723cac11bb4cb66077c0930f57d2ffcc230"
+  integrity sha1-9NbXI8rBG7TLZgd8CTD1fS/8wjA=
+  dependencies:
+    lodash "^3.7.0"
+    xmldom "^0.1.19"
+
+svgpath@2.0.0, svgpath@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/svgpath/download/svgpath-2.0.0.tgz#5f36dc63329cf7fdc9254e3fe0194435de0e068c"
+  integrity sha1-XzbcYzKc9/3JJU4/4BlENd4OBow=
+
 svgpath@^2.1.5, svgpath@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npm.taobao.org/svgpath/download/svgpath-2.3.1.tgz#b102334bebd2244b4818460ba2ebad52716a0d43"
   integrity sha1-sQIzS+vSJEtIGEYLouutUnFqDUM=
+
+tiny-inflate@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.nlark.com/tiny-inflate/download/tiny-inflate-1.0.3.tgz#122715494913a1805166aaf7c93467933eea26c4"
+  integrity sha1-EicVSUkToYBRZqr3yTRnkz7qJsQ=
 
 "traverse@>=0.3.0 <0.4":
   version "0.3.9"
@@ -1163,6 +1284,35 @@ tsutils@^2.29.0:
   dependencies:
     tslib "^1.8.1"
 
+ttf2eot@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.nlark.com/ttf2eot/download/ttf2eot-1.3.0.tgz#94671eacfa5ad7799cd6f9f5b6030f513b032ac2"
+  integrity sha1-lGcerPpa13mc1vn1tgMPUTsDKsI=
+  dependencies:
+    argparse "~0.1.15"
+
+ttf2svg@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.nlark.com/ttf2svg/download/ttf2svg-0.0.7.tgz#3d5aa54900841bbfa3f73643c2a4b573992d3736"
+  integrity sha1-PVqlSQCEG7+j9zZDwqS1c5ktNzY=
+  dependencies:
+    lodash "^2.4.1"
+
+ttf2svg@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.nlark.com/ttf2svg/download/ttf2svg-1.2.0.tgz#4f4a8c53bc96694f4c2c0e79206b214295e669d0"
+  integrity sha1-T0qMU7yWaU9MLA55IGshQpXmadA=
+  dependencies:
+    font-carrier "0.0.12"
+
+ttf2woff@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.nlark.com/ttf2woff/download/ttf2woff-1.3.0.tgz#76a27a6f30ea037a9ed64c9ff43ec7ed461e6d2a"
+  integrity sha1-dqJ6bzDqA3qe1kyf9D7H7UYebSo=
+  dependencies:
+    argparse "~ 0.1.15"
+    pako "~ 0.2.2"
+
 ttf2woff@^3.0.0:
   version "3.0.0"
   resolved "https://registry.nlark.com/ttf2woff/download/ttf2woff-3.0.0.tgz?cache=0&sync_timestamp=1627554813489&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fttf2woff%2Fdownload%2Fttf2woff-3.0.0.tgz#bd0fc0157e428b7a9a30340f78adf72fb741962a"
@@ -1185,6 +1335,16 @@ unbox-primitive@^1.0.1:
     has-bigints "^1.0.1"
     has-symbols "^1.0.2"
     which-boxed-primitive "^1.0.2"
+
+underscore.string@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npm.taobao.org/underscore.string/download/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
+  integrity sha1-jN2PusTi0uoefi6Al8QvRCKA+Fs=
+
+underscore@~1.7.0:
+  version "1.7.0"
+  resolved "https://registry.nlark.com/underscore/download/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
+  integrity sha1-a7rwh3UA02vjTsqlhODbn+8DUgk=
 
 universalify@^2.0.0:
   version "2.0.0"
@@ -1265,6 +1425,16 @@ wrappy@1:
   version "1.0.2"
   resolved "https://registry.nlark.com/wrappy/download/wrappy-1.0.2.tgz?cache=0&sync_timestamp=1619133505879&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fwrappy%2Fdownload%2Fwrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
+
+xmldom@0.1.19:
+  version "0.1.19"
+  resolved "https://registry.nlark.com/xmldom/download/xmldom-0.1.19.tgz#631fc07776efd84118bf25171b37ed4d075a0abc"
+  integrity sha1-Yx/Ad3bv2EEYvyUXGzftTQdaCrw=
+
+xmldom@^0.1.19, xmldom@~0.1.16:
+  version "0.1.31"
+  resolved "https://registry.nlark.com/xmldom/download/xmldom-0.1.31.tgz#b76c9a1bd9f0a9737e5a72dc37231cf38375e2ff"
+  integrity sha1-t2yaG9nwqXN+WnLcNyMc84N14v8=
 
 y18n@^4.0.0:
   version "4.0.3"

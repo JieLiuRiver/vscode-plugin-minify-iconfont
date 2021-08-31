@@ -4,13 +4,16 @@ import { Disposable } from './dispose';
 import * as fs from 'fs'
 import cheerio from 'cheerio';
 import Svg2font from './svg2font/index'
+// import * as ttf2svg from 'ttf2svg';
+
 const svgpath = require('svgpath')
+const svg2ttf = require('svg2ttf')
 
 // const log = (title: string, content: any) => {
 //   console.log(title +' ===========', content)
 //   console.log('')
 // }
-
+ 
 interface IconItem {
   code: number
   heightt: number
@@ -18,10 +21,10 @@ interface IconItem {
   mirrorImagePaths: string[]
   name: string
   paths: string[]
-}
+} 
 
 export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument>{
-
+ 
   static register(context: vscode.ExtensionContext): vscode.Disposable {
     return vscode.window.registerCustomEditorProvider("svg.minify", new Provider(context), {
       supportsMultipleEditorsPerDocument: true,
@@ -43,14 +46,23 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
   openCustomDocument(uri: vscode.Uri, openContext: vscode.CustomDocumentOpenContext, token: vscode.CancellationToken): TTFDocument | Thenable<TTFDocument> {
     return TTFDocument.create(uri)
   } 
-  resolveCustomEditor(document: TTFDocument, webviewPanel: vscode.WebviewPanel, token: vscode.CancellationToken): void | Thenable<void> {
+  async resolveCustomEditor(document: TTFDocument, webviewPanel: vscode.WebviewPanel, token: vscode.CancellationToken) {
     webviewPanel.webview.options = {
       enableScripts: true,
     }
+    let svgContent = ''
+    // if (document.uri.path && document.uri.path.endsWith('.ttf') ) {
+    //    svgContent = await this.transformTTF2Svg(document.uri.path)
+    // }
     const svgPath = document.uri.path
     this.fsPath = document.uri.fsPath
-    if (!svgPath || !svgPath.endsWith('.svg')) return
-    this.parseSvgFile(svgPath)
+    if (!svgPath || !svgPath.endsWith('.svg')) {
+      return
+    }
+    if (!svgContent) {
+      svgContent = fs.readFileSync(svgPath, {encoding:'utf-8'})
+    }
+    this.parseSvgFile(svgContent)
     const html = this.getHtmlForWebView(webviewPanel.webview)
     webviewPanel.webview.postMessage({ icons: this.icons })
     webviewPanel.webview.html = html
@@ -61,9 +73,28 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
       } 
     }, undefined)
   }    
+
+  // async transformTTF2Svg(ttfPath: string) {
+  //   try {
+  //     const buffer = fs.readFileSync(ttfPath)
+  //     const svgContent = ttf2svg(buffer)
+  //     return svgContent
+  //     // fs.writeFileSync('./fontello.svg', svgContent);
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
+  mirrorHandle(htmlStr: string) {
+    let resultText = htmlStr.replace(/d="(.+)"/g,(all,path)=>{
+      return `d="${svgpath(path).matrix([1,0,0,-1,0,0]).matrix([1,0,0,1,0,1024]).toString()}"`
+    })
+    return resultText
+  }
     
-  parseSvgFile(svgPath: string) {
-    const htmlStr = fs.readFileSync(svgPath,{encoding:'utf-8'});
+  parseSvgFile(htmlStr: string) {
+    // 镜像处理
+    htmlStr = this.mirrorHandle(htmlStr)
     const $ = cheerio.load(htmlStr)
     let $fontface = $('font-face:first'),
       $glyph = $('glyph'),
@@ -79,12 +110,13 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
       let {attribs} = glyph;
       if(attribs.d && attribs.d.length > 0){
         icons.push({
-            width: 1024,
-            height: parseInt(height!) * scale,
-            paths: parsePath(Array.from($(glyph)), scale),
-            mirrorImagePaths: mirrorImagePath([attribs.d], parseInt(height!) * scale),
-            name: attribs['glyph-name'] || randomWord(8),
-            code: attribs['unicode'] ? attribs['unicode'].charCodeAt(0) : null,
+          width: 1024,
+          height: parseInt(height!) * scale,
+          paths: parsePath(Array.from($(glyph)), scale),
+          mirrorImagePaths: mirrorImagePath([attribs.d], parseInt(height!) * scale),
+          name: attribs['glyph-name'] || randomWord(8),
+          code: attribs['unicode'] ? attribs['unicode'].charCodeAt(0) : null,
+          unicodeName: attribs['unicode'] ? attribs.unicode.replace(/[^\x00-\xff]/g, (str) => `&#x${str.charCodeAt(0).toString(16)}`) : null
         })
       }
     });
@@ -127,7 +159,7 @@ export class Provider implements vscode.CustomReadonlyEditorProvider<TTFDocument
   }
 
   doExport(icons: IconItem[], pathMap: path.ParsedPath) {
-    const fontName =  pathMap.name || 'custom'
+    const fontName =  pathMap.name || 'defaultName_' + Math.random() * 100
     const dir = path.dirname(this.fsPath)
     Svg2font.baseDir = dir + '/__minify__'
     if(!fs.existsSync(Svg2font.baseDir)){

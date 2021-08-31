@@ -5,7 +5,19 @@ window.onload = () => {
     window.icons = e.data.icons || []
     const $content = $("#root")
     const icons = (e.data.icons || [])
-    $content.html(`<div id="opera" onclick="exportTask(this)"><span>导出</span></div><div class="content">` + icons.map((icon, idx) => `
+    $content.html(`
+<div class="header">
+  <div class="searchArea">
+    <input id="searchInput" onChange="onSearchChange(this)" placeholder="请输入图标名或unicode" />
+    <div id="searchBtn" onclick="doSearch(this)">
+      <span>搜索</span>
+    </div>
+  </div>
+  <div id="opera" onclick="exportTask(this)">
+      <span>导出</span>
+  </div>
+</div>
+<div class="content" id="list">` + icons.map((icon, idx) => `
 <div class="item-content" onclick="toggle(this)" data-idx="${idx}">
     <svg transform="scale(0.5, 0.5)" width="1024" height="1024" viewBox="0 0 1024 1024">
       <g>
@@ -13,6 +25,7 @@ window.onload = () => {
       </g>
     </svg>
     <div class="name">${icon.name}</div>
+    <div class="unicodeName">${icon.unicodeName ? icon.unicodeName.replace('&#x', '\\u').replace(';', '') : '-'}</div>
 </div>
     `).join("\n")) + '<div/>'
   })
@@ -31,6 +44,29 @@ function toggle(self) {
       $(self).addClass('selected')
     }
   }
+}
+
+function onSearchChange(self) {
+  window.keyword = self.value
+}
+
+function doSearch() {
+  console.log('window.keyword', window.keyword, 'window.icons.length', window.icons.length)
+  if (!window.icons.length) return
+  const results = window.keyword ?  window.icons.filter(icon => icon.name.indexOf(window.keyword) !== -1 || icon.unicodeName.indexOf(window.keyword) !== -1) : window.icons
+  const resultHTMLStr = results.map((icon, idx) => `
+  <div class="item-content ${window.collect[icon.name] ? 'selected' : ''}" onclick="toggle(this)" data-idx="${idx}">
+    <svg transform="scale(0.5, 0.5)" width="1024" height="1024" viewBox="0 0 1024 1024">
+      <g>
+        <path d="${icon.paths.join('')}"></path>
+      </g>
+    </svg>
+    <div class="name">${icon.name}</div>
+    <div class="unicodeName">${icon.unicodeName ? icon.unicodeName.replace('&#x', '\\u').replace(';', '') : '-'}</div>
+  </div>
+  `).join('\n')
+  console.log('xxxxxx', $('#list'))
+  $('#list')[0].innerHTML = resultHTMLStr
 }
 
 function exportTask(self) {
